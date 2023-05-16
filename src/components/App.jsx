@@ -1,3 +1,5 @@
+import Widget from "./Widget/Widget";
+
 export const App = () => {
   return (
     <div
@@ -10,7 +12,8 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template Joo
+      
+      <Widget />
     </div>
   );
 };
