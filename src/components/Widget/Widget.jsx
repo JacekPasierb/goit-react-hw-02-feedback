@@ -17,9 +17,23 @@ class Widget extends Component {
     this.setState({ bad: this.state.bad + 1 });
   };
 
+  countTotalFeedback() {
+    let total = 0;
+    const values = Object.values(this.state);
+    values.forEach(value => {
+      total += value;
+    });
+
+    return total;
+  }
+  countPositiveFeedbackPercentage() {
+    const sum = Math.round((this.state.good / this.countTotalFeedback()) * 100);
+    return sum;
+  }
+
   render() {
     let { good, neutral, bad } = this.state;
-    
+
     return (
       <div className={css.widget}>
         <h1>Please Leave Feedback</h1>
@@ -60,6 +74,19 @@ class Widget extends Component {
             <p>Bad: </p>
             <p>{bad}</p>
           </li>
+          <li className={css.statItem}>
+            <p>total: </p>
+            <p>{this.countTotalFeedback()}</p>
+          </li>
+          <li className={css.statItem}>
+            <p>Positive Feedback: </p>
+            <p>
+              {this.countTotalFeedback() > 0
+                ? this.countPositiveFeedbackPercentage() + '%'
+                : 0 + '%'}
+            </p>
+          </li>
+          {/* {this.countTotalFeedback() > 0 && '200'} */}
         </ul>
       </div>
     );
