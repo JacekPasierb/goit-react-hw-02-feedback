@@ -23,3 +23,8 @@
 .btnWidgetText {
     font-size: 28px;
 }
+.statItem {
+  display: flex;
+  flex-direction: row;
+  gap:17px;
+}

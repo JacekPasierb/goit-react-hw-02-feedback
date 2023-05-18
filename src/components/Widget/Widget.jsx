@@ -2,28 +2,44 @@ import { Component } from 'react';
 import css from './WidgetStyle.module.css';
 
 class Widget extends Component {
-  // constructor(){
-  // super()
-  //   }
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+  plusGood = () => {
+    this.setState({ good: this.state.good + 1 });
+  };
+  plusNeutral = () => {
+    this.setState({ neutral: this.state.neutral + 1 });
+  };
+  plusBad = () => {
+    this.setState({ bad: this.state.bad + 1 });
+  };
 
   render() {
+    let { good, neutral, bad } = this.state;
+    
     return (
       <div className={css.widget}>
         <h1>Please Leave Feedback</h1>
         <div className={css.btnsWidget}>
           <button
+            onClick={this.plusGood}
             type="submit"
             className={`${css.btnWidget}  ${css.btnWidgetText}`}
           >
             Good
           </button>
           <button
+            onClick={this.plusNeutral}
             type="submit"
             className={`${css.btnWidget}  ${css.btnWidgetText}`}
           >
             Neutral
           </button>
           <button
+            onClick={this.plusBad}
             type="submit"
             className={`${css.btnWidget}  ${css.btnWidgetText}`}
           >
@@ -32,14 +48,17 @@ class Widget extends Component {
         </div>
         <h3>Statistics</h3>
         <ul>
-          <li>
+          <li className={css.statItem}>
             <p>Good:</p>
+            <p>{good}</p>
           </li>
-          <li>
-            <p>Neutral:</p>
+          <li className={css.statItem}>
+            <p>Neutral: </p>
+            <p>{neutral}</p>
           </li>
-          <li>
-            <p>Bad:</p>
+          <li className={css.statItem}>
+            <p>Bad: </p>
+            <p>{bad}</p>
           </li>
         </ul>
       </div>
