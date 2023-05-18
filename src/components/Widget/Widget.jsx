@@ -60,27 +60,27 @@ class Widget extends Component {
             Bad
           </button>
         </div>
-        <h3>Statistics</h3>
-        <ul>
+        <h4>Statistics</h4>
+        <ul className={css.statList}>
           <li className={css.statItem}>
-            <p>Good:</p>
-            <p>{good}</p>
+            <p className={css.statText}>Good:</p>
+            <p className={css.statText}>{good}</p>
           </li>
           <li className={css.statItem}>
-            <p>Neutral: </p>
-            <p>{neutral}</p>
+            <p className={css.statText}>Neutral: </p>
+            <p className={css.statText}>{neutral}</p>
           </li>
           <li className={css.statItem}>
-            <p>Bad: </p>
-            <p>{bad}</p>
+            <p className={css.statText}>Bad: </p>
+            <p className={css.statText}>{bad}</p>
           </li>
           <li className={css.statItem}>
-            <p>total: </p>
-            <p>{this.countTotalFeedback()}</p>
+            <p className={css.statText}>total: </p>
+            <p className={css.statText}>{this.countTotalFeedback()}</p>
           </li>
           <li className={css.statItem}>
-            <p>Positive Feedback: </p>
-            <p>
+            <p className={css.statText}>Positive Feedback: </p>
+            <p className={css.statText}>
               {this.countTotalFeedback() > 0
                 ? this.countPositiveFeedbackPercentage() + '%'
                 : 0 + '%'}
