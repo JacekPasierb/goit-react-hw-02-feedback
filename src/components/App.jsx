@@ -4,10 +4,15 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 
 export class App extends Component {
   state = {
-    good: 1,
+    good: 0,
     neutral: 0,
     bad: 0,
   };
+  options = Object.keys(this.state);
+  plusVoice = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
+  };
+
   countTotalFeedback() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
@@ -38,8 +43,8 @@ export class App extends Component {
         }}
       >
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
-          onLeaveFeedback={'p'}
+          options={this.options}
+          onLeaveFeedback={this.plusVoice}
         />
         {this.countTotalFeedback() > 0 ? (
           <Statistics
