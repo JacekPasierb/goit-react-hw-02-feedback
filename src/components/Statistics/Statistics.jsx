@@ -11,8 +11,6 @@ export const Statistics = ({
 }) => {
   return (
     <div>
-      <h4>Statistics</h4>
-
       <ul className={css.statList}>
         <li className={css.statItem}>
           <p className={css.statText}>Good:</p>
